@@ -955,7 +955,7 @@ sub reduce_factors {
 
 sub make_classes {
     my ($corpus,$classes) = @_;
-    my $cmd = "$MKCLS -c70 -n3 -p$corpus -V$classes opt";
+    my $cmd = "$MKCLS -c50 -n3 -p$corpus -V$classes opt";
     print STDERR "(1.1) running mkcls  @ ".`date`."$cmd\n";
     if (-e $classes) {
         print STDERR "  $classes already in place, reusing\n";
