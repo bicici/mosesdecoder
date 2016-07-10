@@ -177,13 +177,13 @@ sub learn_transliteration_model{
 
   print "Train Language Models\n";
 
-  `$SRILM_DIR/ngram-count \\
-      -order 5 -interpolate -kndiscount -addsmooth1 0.0 -unk \\
-      -text $OUT_DIR/lm/target -lm $OUT_DIR/lm/targetLM`;
+  #`$SRILM_DIR/ngram-count \\                                                                                                                                                   
+  #    -order 5 -interpolate -kndiscount -addsmooth1 0.0 -unk \\                                                                                                                
+  #    -text $OUT_DIR/lm/target -lm $OUT_DIR/lm/targetLM`;                                                                                                                      
+  `python3 /home/ebicici/Code/SourceCode/Utils/LMUtils.py $OUT_DIR/lm/target $OUT_DIR/lm/targetLM 5`;
 
-  `$MOSES_SRC_DIR/bin/build_binary \\
+  `$MOSES_SRC_DIR/bin/build_binary \\                                                                                                                                           
       $OUT_DIR/lm/targetLM $OUT_DIR/lm/targetLM.bin`;
-
   print "Create Config File\n";
 
   `$MOSES_SRC_DIR/scripts/training/train-model.perl \\
