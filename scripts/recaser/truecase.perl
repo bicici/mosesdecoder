@@ -92,7 +92,7 @@ sub split_xml {
   $MARKUP[0] = "";
   while($line =~ /\S/) {
     # XML tag
-    if ($line =~ /^\s*(<\S[^>]*>)(.*)$/) {
+    if ($line =~ /^(\s*<\S[^>]*>)(.*)$/) {
       my $potential_xml = $1;
       my $line_next = $2;
       # exception for factor that is an XML tag
